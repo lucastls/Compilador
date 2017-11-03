@@ -35,6 +35,7 @@ public class Tag
                 VR = 44, // ","
                 PV = 59, // ";"
                 AS = 34, // "
+				EX = 33, // "!"
 		
 		//outros
 		NUM = 273,

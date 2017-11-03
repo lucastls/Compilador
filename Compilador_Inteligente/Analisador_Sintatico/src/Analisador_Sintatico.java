@@ -220,12 +220,31 @@ public class Analisador_Sintatico {
     
     private void simpleExpr() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: term(); break;
+            case Tag.NUM:
+            case Tag.STR:
+            case Tag.AP:
+            case Tag.EX:
+            case Tag.MN: simpleExpr(); addop(); term(); break
+            default: error();
+        }
     }
-    
+
+    //ERRADO
     private void term() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: term(); break;
+            case Tag.NUM:
+            case Tag.STR:
+            case Tag.AP:
+            case Tag.EX:
+            case Tag.MN: simpleExpr(); addop(); term(); break
+            default: error();
+        }
     }
     
     private void fatorA() throws IOException

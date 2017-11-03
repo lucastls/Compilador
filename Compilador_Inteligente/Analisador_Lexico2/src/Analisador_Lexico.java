@@ -1,9 +1,9 @@
-package Analisador_Lexico_2;
+package Analisador_Lexico2;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class Analisador_Lexico_2
+public class Analisador_Lexico2
 {
 	public static void main(String[] args)
 	{
