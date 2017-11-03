@@ -155,10 +155,15 @@ public class Analisador_Sintatico {
     {
         
     }
-    
+
+    //ERRADO
     private void expression() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: simpleExpr(); break;
+            default: error();
+        }
     }
     
     private void simpleExpr() throws IOException
@@ -198,32 +203,55 @@ public class Analisador_Sintatico {
     
     private void constant() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: integerConst(); break;
+            case TAG.LI: literal(); break;
+            default: error();
+        }
     }
-    
+
+    //ERRADO
     private void integerConst() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.NUM: eat(TAG.NUM); integerConst(); break;
+            default: error();
+        }
     }
     
     private void literal() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case TAG.LI: eat(TAG.LI); break;
+            default: error();
+        }
     }
     
     private void identifier() throws IOException
     {
         
     }
-    
+
+    //????
     private void letter() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case TAG.LI: eat(TAG.LI); break;
+            default: error();
+        }
     }
     
     private void digit() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case TAG.NUM: eat(TAG.NUM); break;
+            default: error();
+        }
     }
     
     private void caractere() throws IOException
