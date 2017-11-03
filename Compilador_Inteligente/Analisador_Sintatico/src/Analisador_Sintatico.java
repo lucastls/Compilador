@@ -1,5 +1,5 @@
 
-package analisador_lexico;
+package Analisador_Lexico_2;
 
 import java.io.IOException;
 
