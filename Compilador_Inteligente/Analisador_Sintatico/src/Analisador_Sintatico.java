@@ -1,5 +1,5 @@
 
-package Analisador_Lexico_2;
+package Analisador_Lexico2;
 
 import java.io.IOException;
 
@@ -39,12 +39,7 @@ public class Analisador_Sintatico {
             error();
         }
     }
-    
-    private void initAnalise() throws IOException
-    {
-        program();
-    }
-    
+
     private void program() throws IOException
     {
         switch(token.tag)
@@ -52,9 +47,9 @@ public class Analisador_Sintatico {
             case Tag.PRG: eat(Tag.PRG); declList(); stmtList(); eat(Tag.END); break;
             default: error();
         }
-        
+
     }
-    
+
     private void declList() throws IOException
     {
         switch(token.tag)
@@ -64,22 +59,26 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-        
+
     private void decl() throws IOException
     {
         switch(token.tag)
         {
-            case Tag.INT: 
+            case Tag.INT:
             case Tag.STR: type(); identList(); eat(Tag.PV);
             default: error();
         }
     }
-    
+
     private void identList() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: identifier(); break;
+            default: error();
+        }
     }
-    
+
     private void type() throws IOException
     {
         switch(token.tag)
@@ -89,7 +88,7 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-    
+
     private void stmtList() throws IOException
     {
         switch(token.tag)
@@ -102,7 +101,7 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-    
+
     private void stmt() throws IOException
     {
         switch(token.tag)
@@ -115,45 +114,98 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-    
+
     private void assignStmt() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.ID: identifier(); eat(Tag.EQ); simpleExpr(); break;
+            default: error();
+        }
     }
-    
+
     private void ifStmt() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.IF: eat(Tag.IF); condition(); eat(Tag.THEN); stmtList(); elseStmt(); break;
+            default: error();
+        }
     }
-    
+
+    private void elseStmt() throws IOException
+    {
+        switch(token.tag)
+        {
+            case Tag.END: eat(Tag.END); break;
+            case Tag.ELSE: eat(Tag.ELSE); stmtList(); eat(Tag.END); break;
+            default: error();
+        }
+    }
+
     private void condition() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.STR:
+            case Tag.ID:
+            case Tag.NUM:
+            case Tag.PR:
+            case Tag.EX: expression(); break;
+            default: error();
+        }
     }
-    
+
     private void whileStmt() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.DO: eat(Tag.DO); stmtList(); stmtSufix(); break;
+            default: error();
+        }
     }
-    
+
     private void stmtSufix() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.WHL: eat(Tag.WHL); condition(); eat(Tag.END);
+            default: error();
+        }
     }
-    
+
     private void readStmt() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.SCN: eat(Tag.SCN); eat(Tag.PR); identifier(); eat(Tag.FP); break;
+            default: error();
+        }
     }
-    
+
     private void writeStmt() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.PRT: eat(Tag.PRT); eat(Tag.PR); writable(); eat(Tag.FP);
+            default: error();
+        }
     }
-    
+
     private void writable() throws IOException
     {
-        
+        switch(token.tag)
+        {
+            case Tag.STR:
+            case Tag.ID:
+            case Tag.NUM:
+            case Tag.PR:
+            case Tag.EX:
+            case Tag.MN: simpleExpr(); break;
+
+            case Tag.AS: literal(); break;
+            default: error();
+        }
     }
 
     //ERRADO
