@@ -194,7 +194,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
+            case Tag.LI:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR:
@@ -234,7 +234,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.PRT: eat(Tag.PRT); eat(Tag.PR); writable(); eat(Tag.FP);
+            case Tag.PRT: eat(Tag.PRT); eat(Tag.PR); writable(); eat(Tag.FP); break;
             default: error();
         }
     }
@@ -243,14 +243,13 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR:
             case Tag.EX:
             case Tag.MN: simpleExpr(); break;
 
-            case Tag.AS: literal(); break;
+            case Tag.LI: literal(); break;
             default: error();
         }
     }
@@ -259,7 +258,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
+            case Tag.LI:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR:
@@ -290,7 +289,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
+            case Tag.LI:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR:
@@ -326,7 +325,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
+            case Tag.LI:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR:
@@ -364,7 +363,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR:
+            case Tag.LI:
             case Tag.ID:
             case Tag.NUM:
             case Tag.PR: factor(); break;
@@ -379,7 +378,7 @@ public class Analisador_Sintatico {
         switch(token.tag)
         {
             case Tag.NUM:
-            case Tag.STR: constant(); break;
+            case Tag.LI: constant(); break;
             case Tag.ID: identifier(); break;
             case Tag.PR: eat(Tag.PR); expression(); eat(Tag.FP); break;
             default: error();
@@ -426,7 +425,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.STR: literal(); break;
+            case Tag.LI: literal(); break;
             case Tag.NUM: integerConst(); break;
             default: error();
         }
@@ -445,7 +444,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.AS: eat(Tag.AS); eat(Tag.LI); eat(Tag.AS); break;
+            case Tag.LI: eat(Tag.LI); break;
             default: error();
         }
     }

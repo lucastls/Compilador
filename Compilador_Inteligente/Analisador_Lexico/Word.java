@@ -28,7 +28,7 @@ public class Word extends Token
 	public static final Word fp = new Word(")", Tag.FP, PO);
 	public static final Word vr = new Word(",", Tag.VR, PO);
 	public static final Word pv = new Word(";", Tag.PV, PO);
-        public static final Word as = new Word("\"", Tag.AS, PO);
+       // public static final Word as = new Word("\"", Tag.AS, PO);
         
         //Comentário
         public static final Word c1 = new Word("//", Tag.C1, C1);

@@ -179,6 +179,8 @@ public class Lexer
 					return Word.vr;
 			case ';':	ch = ' ';
 					return Word.pv;
+			//case '\"': ch = ' ';
+			//		return Word.as;
 		}
 		
 		//Literais
