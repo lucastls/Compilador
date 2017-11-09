@@ -1,4 +1,4 @@
-package analisador_lexico;
+package Analisador_Lexico;
 import java.io.*;
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class Lexer
 			}while((int)ch >= 0 && (int)ch <= 255);
 			
 			String st = s.toString();
-			Word w = (Word)Words.get(st);
+			Word w = Words.get(st);
                        			
 			if(w != null)
 				return w;
@@ -235,7 +235,7 @@ public class Lexer
 			}while(Character.isLetterOrDigit(ch));
 			
 			String st = s.toString();
-			Word w = (Word)Words.get(st);
+			Word w = Words.get(st);
                         //System.out.println("Palavra: " +w+ "ID:" +w.getLexeme());
 			if(w != null)
 				return w;

@@ -1,4 +1,4 @@
-package analisador_lexico;
+package Analisador_Lexico;
 
 public class Num extends Token
 {
@@ -6,7 +6,7 @@ public class Num extends Token
 	
 	public Num(int value)
 	{
-		super(Tag.NUM, Token.NUM);
+		super(Tag.NUM, NUM);
 		this.value = value;
 	}
 	

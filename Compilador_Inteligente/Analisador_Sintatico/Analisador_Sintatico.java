@@ -1,7 +1,7 @@
-
 package Analisador_Sintatico;
 
-import Analisador_Lexico;
+import Analisador_Lexico.*;
+
 import java.io.IOError;
 import java.io.IOException;
 
@@ -46,7 +46,6 @@ public class Analisador_Sintatico {
         program();
     }
 
-    //program ::= program [decl-list] stmt-list end
     private void program() throws IOException
     {
         switch(token.tag)
@@ -57,7 +56,6 @@ public class Analisador_Sintatico {
 
     }
 
-    //decl-list ::= decl {decl}
     private void declList() throws IOException
     {
         switch(token.tag)
@@ -68,7 +66,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //{decl}
     private void declList2() throws IOException
     {
         switch(token.tag)
@@ -84,7 +81,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //decl ::= type ident-list ";"
     private void decl() throws IOException
     {
         switch(token.tag)
@@ -95,7 +91,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //ident-list ::= identifier {"," identifier}
     private void identList() throws IOException
     {
         switch(token.tag)
@@ -105,7 +100,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //{"," identifier}
     private void identList2() throws IOException
     {
         switch(token.tag)
@@ -116,7 +110,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //type ::= int | string
     private void type() throws IOException
     {
         switch(token.tag)
@@ -127,7 +120,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //stmt-list ::= stmt {stmt}
     private void stmtList() throws IOException
     {
         switch(token.tag)
@@ -141,7 +133,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //stmt ::= assign-stmt ";" | if-stmt | while-stmt | read-stmt ";" | write-stmt ";"
     private void stmt() throws IOException
     {
         switch(token.tag)
@@ -155,7 +146,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //assign-stmt ::= identifier "=" simple-expr
     private void assignStmt() throws IOException
     {
         switch(token.tag)
@@ -164,8 +154,6 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-
-    //if-stmt ::= if condition then stmt-list end
 
     private void ifStmt() throws IOException
     {
@@ -176,7 +164,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //if-stmt ::= if condition then stmt-list else -stmt-list end
     private void elseStmt() throws IOException
     {
         switch(token.tag)
@@ -187,7 +174,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //condition ::= expression
     private void condition() throws IOException
     {
         switch(token.tag)
@@ -201,7 +187,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //while-stmt ::= do stmt-list stmt-sufix
     private void whileStmt() throws IOException
     {
         switch(token.tag)
@@ -211,7 +196,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //stmt-sufix ::= while condition end
     private void stmtSufix() throws IOException
     {
         switch(token.tag)
@@ -221,7 +205,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //read-stmt ::= scan "(" identifier ")"
     private void readStmt() throws IOException
     {
         switch(token.tag)
@@ -231,7 +214,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //write-stmt ::= print "(" writable ")"
     private void writeStmt() throws IOException
     {
         switch(token.tag)
@@ -241,7 +223,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //writable ::=  simple-expr | literal
     private void writable() throws IOException
     {
         switch(token.tag)
@@ -258,7 +239,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //expression ::= simple-expr
     private void expression() throws IOException
     {
         switch(token.tag)
@@ -273,7 +253,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //expression ::= simple-expr relop simple-expr
     private void expression2() throws IOException
     {
         switch(token.tag)
@@ -287,10 +266,10 @@ public class Analisador_Sintatico {
             case Tag.END: break;
             case Tag.THEN: break;
             case Tag.FP: break;
+            default: error();
         }
     }
 
-    //simple-expr ::= term
     private void simpleExpr() throws IOException
     {
         switch(token.tag)
@@ -306,7 +285,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //simple-expr ::= simple-expr addop term
     private void simpleExpr2() throws IOException
     {
         switch(token.tag)
@@ -328,7 +306,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //term ::= fator-a
     private void term() throws IOException
     {
         switch(token.tag)
@@ -343,7 +320,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //term ::= term mulop fator-a
     private void term2() throws IOException
     {
         switch(token.tag)
@@ -368,7 +344,6 @@ public class Analisador_Sintatico {
         }
     }
 
-    //fator-a ::= factor | ! factor | "-" factor
     private void fatorA() throws IOException
     {
         switch(token.tag)
@@ -383,11 +358,11 @@ public class Analisador_Sintatico {
         }
     }
 
-    //
     private void factor() throws IOException
     {
         switch(token.tag)
         {
+            case Tag.NUM:
             case Tag.STR: constant(); break;
             case Tag.ID: identifier(); break;
             case Tag.PR: eat(Tag.PR); expression(); eat(Tag.FP); break;
@@ -473,7 +448,7 @@ public class Analisador_Sintatico {
     {
 
         try{
-            Lexer lexer = new Lexer("/home/mateus/Compiladores/Analisador_Lexico/src/analisador_lexico/teste.txt");
+            Lexer lexer = new Lexer("/home/lucas/GitHub/Compilador_Int/Compilador_Inteligente/testes/teste6.txt");
             Analisador_Sintatico Sintatico = new Analisador_Sintatico(lexer);
             Sintatico.initAnalise();
             System.err.println("\n");
