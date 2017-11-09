@@ -12,9 +12,9 @@ public class Token
 	public final static String ML = "mulop";
 	public final static String PO = "pontuacao";
 	public final static String KY = "palavra_chave";
-        public final static String EOF = "erro";
-        public final static String C1 = "coment_1linha";
-        public final static String CM = "coment_linhas";
+	public final static String EOF = "erro";
+    public final static String C1 = "coment_1linha";
+    public final static String CM = "coment_linhas";
 	
 	public Token(int t, String tipo)
 	{

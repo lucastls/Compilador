@@ -24,7 +24,7 @@ public class Analisador_Sintatico {
 
     private void error()
     {
-        System.out.println("Erro sintático na linha " + lexer.line +" próximo ao Token: ("+ token.getTipo()+ ")");
+        System.err.println("Erro sintático na linha " + lexer.line +" próximo ao Token: (\""+ token+ "\")");
         System.exit(0);
     }
 
@@ -128,7 +128,23 @@ public class Analisador_Sintatico {
             case Tag.IF:
             case Tag.DO:
             case Tag.SCN:
-            case Tag.PRT: stmt(); break;
+            case Tag.PRT: stmt(); stmtList2(); break;
+            default: error();
+        }
+    }
+
+    private void stmtList2() throws IOException
+    {
+        switch(token.tag)
+        {
+            case Tag.ID:
+            case Tag.IF:
+            case Tag.DO:
+            case Tag.SCN:
+            case Tag.PRT: stmt(); stmtList2(); break;
+            case Tag.END: break;
+            case Tag.ELSE: break;
+            case Tag.WHL: break;
             default: error();
         }
     }
@@ -448,7 +464,7 @@ public class Analisador_Sintatico {
     {
 
         try{
-            Lexer lexer = new Lexer("/home/lucas/GitHub/Compilador_Int/Compilador_Inteligente/testes/teste6.txt");
+            Lexer lexer = new Lexer("/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste6.txt");
             Analisador_Sintatico Sintatico = new Analisador_Sintatico(lexer);
             Sintatico.initAnalise();
             System.err.println("\n");
