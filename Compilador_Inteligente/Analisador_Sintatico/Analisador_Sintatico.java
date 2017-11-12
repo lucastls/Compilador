@@ -216,7 +216,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.WHL: eat(Tag.WHL); condition(); eat(Tag.END);
+            case Tag.WHL: eat(Tag.WHL); condition(); eat(Tag.END); break;
             default: error();
         }
     }
@@ -463,7 +463,7 @@ public class Analisador_Sintatico {
     {
 
         try{
-            Lexer lexer = new Lexer("/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste6.txt");
+            Lexer lexer = new Lexer("/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste5-corrigido.txt");
             Analisador_Sintatico Sintatico = new Analisador_Sintatico(lexer);
             Sintatico.initAnalise();
             System.err.println("\n");

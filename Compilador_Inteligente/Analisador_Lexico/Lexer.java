@@ -111,31 +111,59 @@ public class Lexer
                                 //...de várias linhas
                                 else if(ch == '*')
                                 {
-                                        //char ch2 = ' ';
-                                        int linhaInicComment = line;
-                                        readch();
-                                        
-                                        while(true)//for(;; readch())
-                                        {
-                                                                                       
-                                            if(ch=='*')
-                                            {
-                                                                                        
-                                                if(readch('/'))
-                                                {
-                                                    return Word.cm;
-                                                }
+                                	int linhaInicComment = line;
+                                	while(true)
+									{
+										readch();
+										if(Integer.valueOf(ch) == 65535)
+										{
+											error("\nComentario iniciado na linha " +linhaInicComment+ " sem fim!");
+										}
+										if(ch == '\n')
+										{
+											line++;
+											continue;
+										}
+										if(ch == '*')
+										{
+											if(readch('/'))
+											{
+												ch = ' ';
+												return scan();
+											}
+											else
+											{
+												continue;
+											}
+										}
+									}
 
-                                            }
-                                            
-                                            if(ch == '\n')
-                                                line++;
-                                            readch();
-                                            if(Integer.valueOf(ch) == 65535)
-                                            {
-                                                error("\nComentario iniciado na linha " +linhaInicComment+ " sem fim!");
-                                            }
-                                        }
+                                	/*
+									//char ch2 = ' ';
+									int linhaInicComment = line;
+									readch();
+
+									while(true)//for(;; readch())
+									{
+
+										if(ch=='*')
+										{
+
+											if(readch('/'))
+											{
+												return Word.cm;
+											}
+
+										}
+
+										if(ch == '\n')
+											line++;
+										readch();
+										if(Integer.valueOf(ch) == 65535)
+										{
+											error("\nComentario iniciado na linha " +linhaInicComment+ " sem fim!");
+										}
+									}*/
                                 }
                                 else
                                     return Word.dv;
@@ -179,8 +207,6 @@ public class Lexer
 					return Word.vr;
 			case ';':	ch = ' ';
 					return Word.pv;
-			//case '\"': ch = ' ';
-			//		return Word.as;
 		}
 		
 		//Literais

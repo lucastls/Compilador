@@ -28,16 +28,16 @@ public class Word extends Token
 	public static final Word fp = new Word(")", Tag.FP, PO);
 	public static final Word vr = new Word(",", Tag.VR, PO);
 	public static final Word pv = new Word(";", Tag.PV, PO);
-       // public static final Word as = new Word("\"", Tag.AS, PO);
+   // public static final Word as = new Word("\"", Tag.AS, PO);
         
-        //Comentário
-        public static final Word c1 = new Word("//", Tag.C1, C1);
-        public static final Word cm = new Word("/* */", Tag.CM, CM);
-        
-        
-        //EOF
-        public static final Word eof = new Word("EOF", Tag.EOF, EOF);
-	
+	//Comentário
+	public static final Word c1 = new Word("//", Tag.C1, C1);
+	public static final Word cm = new Word("/* */", Tag.CM, CM);
+
+
+	//EOF
+	public static final Word eof = new Word("EOF", Tag.EOF, EOF);
+
 	public Word(String s, int tag, String tipo)
 	{
 		super(tag, tipo);
