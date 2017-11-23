@@ -62,7 +62,7 @@ public class Lexer
 	
 	public void error()
 	{
-		System.err.println("\nErro linha " +line+ ": caractere não reconhecido: "+"\"" +ch+ "\"");
+		System.err.println("\nErro lexico linha " +line+ ": caractere não reconhecido: "+"\"" +ch+ "\"");
 		System.exit(0);
 	}
 	
