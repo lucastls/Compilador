@@ -3,7 +3,8 @@ package Analisador_Lexico;
 public class Token
 {
 	public final int tag;
-	private final String tipo;
+	public String tipo;
+	public boolean declaration;
 	public final static String ID = "id";
 	public final static String NUM = "num";
 	public final static String LI = "literal";

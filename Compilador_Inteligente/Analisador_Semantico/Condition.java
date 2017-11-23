@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -25,10 +25,10 @@ private void condition() throws IOException
     }
  */
 
-public class Condition extends Analisador_Sintatico{
+public class Condition extends Sintatico{
     Expression expression;
 
-    public Condition(Analisador_Sintatico init)
+    public Condition(Sintatico init)
     {
         super(init);
     }

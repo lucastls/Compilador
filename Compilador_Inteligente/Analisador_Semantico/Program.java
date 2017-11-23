@@ -2,6 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,11 +22,11 @@ private void program() throws IOException
 }
  */
 
-public class Program extends Analisador_Sintatico{
+public class Program extends Sintatico{
     DeclList decllist;
     StmtList stmtlist;
 
-    public Program(Analisador_Sintatico init)
+    public Program(Sintatico init)
     {
         super(init);
     }
@@ -44,7 +45,7 @@ public class Program extends Analisador_Sintatico{
                     Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, e);
                 }
             }
-            this.tipo = "prg";
+            this.type = "prg";
             decllist = new DeclList(this);
             decllist.analiseSemantica();
 

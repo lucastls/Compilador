@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -25,14 +25,14 @@ private void stmt() throws IOException
     }
  */
 
-public class Stmt extends Analisador_Sintatico{
+public class Stmt extends Sintatico{
     AssignStmt assignStmt;
     IfStmt ifStmt;
     WhileStmt whileStmt;
     ReadStmt readStmt;
     WriteStmt writeStmt;
 
-    public Stmt(Analisador_Sintatico init)
+    public Stmt(Sintatico init)
     {
         super(init);
     }

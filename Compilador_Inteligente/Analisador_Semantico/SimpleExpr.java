@@ -6,7 +6,8 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
+import Util.Util;
 
 /*
 switch(token.tag)
@@ -22,12 +23,12 @@ switch(token.tag)
         }
  */
 
-public class SimpleExpr extends Analisador_Sintatico{
+public class SimpleExpr extends Sintatico{
 
     Term term;
     SimpleExpr2 simpleExpr2;
 
-    public SimpleExpr(Analisador_Sintatico init){
+    public SimpleExpr(Sintatico init){
         super(init);
     }
 
@@ -43,17 +44,17 @@ public class SimpleExpr extends Analisador_Sintatico{
             case Tag.MN:
 
                 term = new Term(this);
-                simpleExpr.analiseSemantica();
+                term.analiseSemantica();
 
-                expression2 = new Expression2(this);
-                expression2.analiseSemanticaSemantica();
+                simpleExpr2 = new SimpleExpr2(this);
+                simpleExpr2.analiseSemantica();
 
-                if (!simpleExpr2.tipo.equals("void")) {
+                if (!simpleExpr2.type.equals("void")) {
 
-                    if (!Util.isNumeric(term.tipo) || !Util.isNumeric(simpleExpr2.tipo)) {
+                    if (!Util.isNumeric(term.type) || !Util.isNumeric(simpleExpr2.type)) {
 
                         if (!term.type.equals(simpleExpr2.type)) {
-                            System.out.println("Erro semantico na linha " + Lexico.numLinha + ":\n" + "Operador incompatível com tipo do operando.");
+                            System.out.println("Erro semantico na linha " + lexer.line + ":\n" + "Operador incompatível com type do operando.");
                             error();
                         }
                     }

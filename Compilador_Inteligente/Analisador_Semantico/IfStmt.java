@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,12 +21,12 @@ private void ifStmt() throws IOException
     }
  */
 
-public class IfStmt extends Analisador_Sintatico{
+public class IfStmt extends Sintatico{
     Condition condition;
     StmtList stmtList;
     ElseStmt elseStmt;
 
-    public IfStmt(Analisador_Sintatico init){
+    public IfStmt(Sintatico init){
         super(init);
     }
 
@@ -57,7 +57,7 @@ public class IfStmt extends Analisador_Sintatico{
                 stmtList = new StmtList(this);
                 stmtList.analiseSemantica();
 
-                elseStmt = new ElseStmt();
+                elseStmt = new ElseStmt(this);
                 elseStmt.analiseSemantica();
 
                 break;

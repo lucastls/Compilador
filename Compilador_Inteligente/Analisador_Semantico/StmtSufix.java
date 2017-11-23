@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,10 +21,10 @@ private void stmtSufix() throws IOException
     }
  */
 
-public class StmtSufix extends Analisador_Sintatico{
+public class StmtSufix extends Sintatico{
     Condition condition;
 
-    public StmtSufix(Analisador_Sintatico init)
+    public StmtSufix(Sintatico init)
     {
         super(init);
     }

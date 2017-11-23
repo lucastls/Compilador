@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -24,11 +24,11 @@ private void fatorA() throws IOException
     }
 */
 
-public class FatorA extends Analisador_Sintatico {
+public class FatorA extends Sintatico {
     
     Factor factor;
     
-    public FactorA(Analisador_Sintatico init){
+    public FatorA(Sintatico init){
         super(init);
     }
     
@@ -43,7 +43,7 @@ public class FatorA extends Analisador_Sintatico {
 		case Tag.PR:
 			factor = new Factor(this);
                 	factor.analiseSemantica();
-                	this.tipo = factor.tipo;
+                	this.type = factor.type;
                 	break;                
                 case Tag.EX: {
 		        try {
@@ -53,12 +53,12 @@ public class FatorA extends Analisador_Sintatico {
 		        }
 		    }
 	            factor = new Factor(this);
-	            factor.analise();
-	            if (!factor.tipo.equals("bool")) {
-	                System.out.println("Erro Semântico na linha " + Lexico.numLinha + ":\n" + "Operador booleano esperado.");
+	            factor.analiseSemantica();
+	            if (!factor.type.equals("bool")) {
+	                System.out.println("Erro Semântico na linha " + lexer.line + ":\n" + "Operador booleano esperado.");
 	                error();
 	            }
-	            this.tipo = factor.tipo;
+	            this.type = factor.type;
 	            break;
         
             	case Tag.MN: {
@@ -69,16 +69,16 @@ public class FatorA extends Analisador_Sintatico {
 		            }
     		}
 	            factor = new Factor(this);
-	            factor.analise();
-	            if ((!factor.tipo.equals("inteiro"))&&(!factor.tipo.equals("literal"))) {
-	                System.out.println("Erro Semântico na linha " + Lexico.numLinha + ":\n" + "Operador númerico esperado.");
-	                erro();
+	            factor.analiseSemantica();
+	            if ((!factor.type.equals("inteiro"))&&(!factor.type.equals("literal"))) {
+	                System.out.println("Erro Semântico na linha " + lexer.line + ":\n" + "Operador númerico esperado.");
+	                error();
 	            }
-	            this.tipo = factor.tipo;
+	            this.type = factor.type;
 	            break;
             
             default:
-                System.out.println("Erro sintatico na linha " + Lexer.line + ":\n" + "Expressao esperada nao encontrada.");
+                System.out.println("Erro sintatico na linha " + lexer.line + ":\n" + "Expressao esperada nao encontrada.");
                 error();
         }
     }

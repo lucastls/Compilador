@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 /*
 switch(token.tag)
@@ -17,12 +17,12 @@ switch(token.tag)
         }
 */
 
-public class DeclList extends Analisador_Sintatico {
+public class DeclList extends Sintatico {
 
     Decl decl;
     DeclList2 declList2;
 
-    public DeclList(Analisador_Sintatico init){
+    public DeclList(Sintatico init){
         super(init);
     }
 
@@ -37,8 +37,8 @@ public class DeclList extends Analisador_Sintatico {
                 decl.analiseSemantica();
 
                 declList2 = new DeclList2(this);
-                Decl.analiseSemantica();
-                DeclList2.analiseSemantica();
+                decl.analiseSemantica();
+                declList2.analiseSemantica();
                 break;
 
             default:

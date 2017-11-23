@@ -2,7 +2,8 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
+import Util.Util;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -20,12 +21,12 @@ private void assignStmt() throws IOException
     }
 */
 
-public class AssignStmt extends Analisador_Sintatico {
+public class AssignStmt extends Sintatico {
     
     Identifier identifier;
     SimpleExpr simpleExpr;
     
-    public AssignStmt(Analisador_Sintatico init){
+    public AssignStmt(Sintatico init){
         super(init);
     }
     
@@ -48,12 +49,12 @@ public class AssignStmt extends Analisador_Sintatico {
 		        }
                 
                 simpleExpr = new SimpleExpr(this);
-                simpleExpr.analise();
+                simpleExpr.analiseSemantica();
                 
-                if (!Util.canAssign(identifier.tipo, simpleExpr.tipo)) {
+                if (!Util.canAssign(identifier.type, simpleExpr.type)) {
                     
                 	System.out.println("Erro semântico na linha " + Lexer.line + ":\n" + "Tipos incompatíveis.");
-                    erro();
+                    error();
                 }
                 
                 break;

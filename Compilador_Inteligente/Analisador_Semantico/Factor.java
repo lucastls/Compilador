@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,13 +23,13 @@ import java.util.logging.Logger;
 */
 
 
-public class Factor extends Analisador_Sintatico {
+public class Factor extends Sintatico {
     
     Identifier identifier;
     Constant constant;
     Expression expression;
     
-    public Factor(Analisador_Sintatico init) {
+    public Factor(Sintatico init) {
         super(init);
     }
     
@@ -41,7 +41,7 @@ public class Factor extends Analisador_Sintatico {
             case Tag.LI:
             	constant = new Constant(this);
                 constant.analiseSemantica();
-                this.tipo = constant.tipo;
+                this.type = constant.type;
                 break;
 	    case Tag.ID:
                 
@@ -69,7 +69,7 @@ break;
             
             expression = new Expression(this);
             expression.analiseSemantica();
-            this.tipo = expression.tipo;
+            this.type = expression.type;
             
             {
             	try {
@@ -81,7 +81,7 @@ break;
             break;                                                                                                                                
             
             default:
-                System.out.println("Erro sintático na linha " + Lexer.ine + ":\n" + "Expressão esperada não encontrada.");
+                System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Expressão esperada não encontrada.");
                 error();
         }
     }

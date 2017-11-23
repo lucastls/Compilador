@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -27,11 +27,10 @@ private void writable() throws IOException
     }
  */
 
-public class Writable extends Analisador_Sintatico{
+public class Writable extends Sintatico{
     SimpleExpr simpleExpr;
-    Literal literal;
 
-    public Writable(Analisador_Sintatico init)
+    public Writable(Sintatico init)
     {
         super(init);
     }
@@ -46,14 +45,22 @@ public class Writable extends Analisador_Sintatico{
             case Tag.PR:
             case Tag.EX:
             case Tag.MN:
-                simpleExpr = new SimpleExpre(this);
+                simpleExpr = new SimpleExpr(this);
                 simpleExpr.analiseSemantica();
 
                 break;
 
             case Tag.LI:
-                literal = new Literal(this);
-                literal.analiseSemantica();
+            {
+                try{
+                    eat(Tag.LI);
+                }catch (IOException e)
+                {
+                    Logger.getLogger(Writable.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            this.type = "literal";
+
 
                 break;
 

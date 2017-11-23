@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 /*
 switch(token.tag)
@@ -17,9 +17,9 @@ switch(token.tag)
         }
 */
 
-public class Type extends Analisador_Sintatico{
+public class Type extends Sintatico{
 
-    public Type(Analisador_Sintatico init){
+    public Type(Sintatico init){
         super(init);
     }
 

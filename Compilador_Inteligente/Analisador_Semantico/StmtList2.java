@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,11 +28,11 @@ private void stmtList2() throws IOException
     }
  */
 
-public class StmtList2 extends Analisador_Sintatico{
+public class StmtList2 extends Sintatico{
     Stmt stmt;
     StmtList2 stmtlist2;
 
-    public StmtList2(Analisador_Sintatico init)
+    public StmtList2(Sintatico init)
     {
         super(init);
     }

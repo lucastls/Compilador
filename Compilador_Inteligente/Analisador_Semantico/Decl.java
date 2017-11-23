@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 /*
 switch(token.tag)
@@ -17,11 +17,11 @@ switch(token.tag)
         }
 */
 
-public class Decl extends Analisador_Sintatico{
+public class Decl extends Sintatico{
     Type type;
     IdentList identList;
 
-    public Decl(Analisador_Sintatico init){
+    public Decl(Sintatico init){
         super(init);
     }
 

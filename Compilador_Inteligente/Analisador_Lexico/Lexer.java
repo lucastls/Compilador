@@ -9,15 +9,16 @@ public class Lexer
 	private FileReader file;
 	private Token token;
 	private String lexeme;
-	
+	private static Lexer inst;
+
 	protected static Hashtable<String, Word> Words = new Hashtable<String, Word>();
-	
+
 	//Recebe um símbolo e o insere na tabela
 	private void reserve(Word w)
 	{
 		Words.put(w.getLexeme(), w);
 	}
-	
+
 	//À partir do arquivo insere as palavras reservadas na tabela de símbolos
 	public Lexer(String fileName) throws FileNotFoundException
 	{
@@ -42,6 +43,16 @@ public class Lexer
 		reserve(new Word ("scan", Tag.SCN, Token.KY));
 		reserve(new Word ("print", Tag.PRT, Token.KY));
                 //reserve(new Word ("\"", Tag.AS, Token.PO));
+	}
+
+	public static Lexer getInst(String fileName) throws FileNotFoundException
+	{
+		if(inst == null)
+		{
+			inst = new Lexer(fileName);
+			return inst;
+		}
+		return inst;
 	}
 	
 	//lê o próximo caractere (vide slide)

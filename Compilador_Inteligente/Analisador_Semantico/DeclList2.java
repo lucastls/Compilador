@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 
 /*
@@ -26,12 +26,12 @@ private void declList2() throws IOException
     }
 */
 
-public class DeclList2 extends Analisador_Sintatico {
+public class DeclList2 extends Sintatico {
 
     Decl decl;
     DeclList2 declList2;
 
-    public DeclList2(Analisador_Sintatico init){
+    public DeclList2(Sintatico init){
         super(init);
     }
 
@@ -51,8 +51,8 @@ public class DeclList2 extends Analisador_Sintatico {
                 }
 
                 declList2 = new DeclList2(this);
-                Decl.analiseSemantica();
-                DeclList2.analiseSemantica();
+                decl.analiseSemantica();
+                declList2.analiseSemantica();
                 break;
 
             case Tag.STR:
@@ -66,8 +66,8 @@ public class DeclList2 extends Analisador_Sintatico {
                 }
 
                 declList2 = new DeclList2(this);
-                Decl.analiseSemantica();
-                DeclList2.analiseSemantica();
+                decl.analiseSemantica();
+                declList2.analiseSemantica();
                 break;
 
             case Tag.ID: break;

@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 /*
 switch(token.tag)
@@ -24,12 +24,12 @@ switch(token.tag)
         }
  */
 
-public class Expression extends Analisador_Semantico{
+public class Expression extends Sintatico{
 
     SimpleExpr simpleExpr;
     Expression2 expression2;
 
-    public Expression(Analisador_Sintatico init){
+    public Expression(Sintatico init){
         super(init);
     }
 
@@ -48,7 +48,7 @@ public class Expression extends Analisador_Semantico{
                 simpleExpr.analiseSemantica();
 
                 expression2 = new Expression2(this);
-                expression2.analiseSemanticaSemantica();
+                expression2.analiseSemantica();
 
                 if (!expression2.type.equals("void")) {
 

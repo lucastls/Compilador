@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -18,8 +18,8 @@ switch(token.tag)
         }
 */
 
-public class Addop extends Analisador_Sintatico{
-    public Addop(Analisador_Sintatico init){
+public class Addop extends Sintatico{
+    public Addop(Sintatico init){
         super(init);
     }
 

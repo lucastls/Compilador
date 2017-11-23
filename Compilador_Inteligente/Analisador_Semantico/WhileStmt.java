@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,11 +21,11 @@ private void whileStmt() throws IOException
     }
  */
 
-public class WhileStmt extends Analisador_Sintatico{
+public class WhileStmt extends Sintatico{
     StmtList stmtList;
     StmtSufix stmtSufix;
 
-    public WhileStmt(Analisador_Sintatico init)
+    public WhileStmt(Sintatico init)
     {
         super(init);
     }

@@ -19,12 +19,12 @@ switch(token.tag)
             default: error();
         }
  */
-public class Expression2 extends Analisador_Semantico{
+public class Expression2 extends Sintatico{
 
     Relop relop;
     Expression2 expression2;
 
-    public Expression2(Analisador_Sintatico init){
+    public Expression2(Sintatico init){
         super(init);
     }
 

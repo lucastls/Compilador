@@ -2,7 +2,7 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,9 +21,9 @@ private void mulop() throws IOException
     }
 */
 
-public class Mulop extends Analisador_Sintatico {
+public class Mulop extends Sintatico {
     
-    public Mulop(Analisador_Sintatico init) {
+    public Mulop(Sintatico init) {
         super(init);
     }
     
@@ -40,7 +40,7 @@ public class Mulop extends Analisador_Sintatico {
 	                Logger.getLogger(Mulop.class.getName()).log(Level.SEVERE, null, e);
 	            }
 	        }
-            this.tipo = init.tipo;
+            this.type = init.type;
 			break;
 		    
 	    	case Tag.DV: {
@@ -51,7 +51,7 @@ public class Mulop extends Analisador_Sintatico {
 	                Logger.getLogger(Mulop.class.getName()).log(Level.SEVERE, null, e);
 	            }
 	        }
-            this.tipo = init.tipo;
+            this.type = init.type;
 			break;
 			
 		    case Tag.AN: {
@@ -62,7 +62,7 @@ public class Mulop extends Analisador_Sintatico {
 	                Logger.getLogger(Mulop.class.getName()).log(Level.SEVERE, null, e);
 	            }
 	        }
-            this.tipo = "bool";
+            this.type = "bool";
 			break;
 		    
 		    default:

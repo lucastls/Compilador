@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
 
 /*
 switch(token.tag)
@@ -21,8 +21,8 @@ switch(token.tag)
         }
 */
 
-public class Relop extends Analisador_Sintatico{
-    public Relop(Analisador_Sintatico init){
+public class Relop extends Sintatico{
+    public Relop(Sintatico init){
         super(init);
     }
 

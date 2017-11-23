@@ -6,7 +6,8 @@ import java.util.logging.Logger;
 
 import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
-import Analisador_Sintatico.Analisador_Sintatico;
+import Analisador_Semantico.Sintatico;
+import Util.Util;
 
 /*
 switch(token.tag)
@@ -28,13 +29,13 @@ default: error();
         }
 */
 
-public class SimpleExpr2 extends Analisador_Sintatico{
+public class SimpleExpr2 extends Sintatico{
 
     Addop addop;
     Term term;
     SimpleExpr2 simpleExpr2;
 
-    public SimpleExpr2(Analisador_Sintatico init){
+    public SimpleExpr2(Sintatico init){
         super(init);
     }
 
@@ -44,7 +45,7 @@ public class SimpleExpr2 extends Analisador_Sintatico{
         switch (token.tag) {
             case Tag.PL:
             case Tag.MN:
-            case Tag.OR
+            case Tag.OR:
 
                 addop = new Addop(this);
                 addop.analiseSemantica();
@@ -58,14 +59,14 @@ public class SimpleExpr2 extends Analisador_Sintatico{
                     if (!addop.type.equals(term.type)) {
 
                         System.out.println("Erro semântico na linha " + Lexer.line + ":\n"  + "Operador incompatível com o type do operando.");
-                        erro();
+                        error();
 
                     }
                 }
 
                 this.type = Util.getNumericType(addop.type, term.type);
-                simpleExpr2 = new SimpleExpr1(this);
-                simpleExpr2.analise();
+                simpleExpr2 = new SimpleExpr2(this);
+                simpleExpr2.analiseSemantica();
 
                 if (!simpleExpr2.type.equals("void")) {
 
