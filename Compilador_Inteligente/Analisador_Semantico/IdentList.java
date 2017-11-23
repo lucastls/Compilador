@@ -11,18 +11,17 @@ import Analisador_Sintatico.Analisador_Sintatico;
 /*
 switch(token.tag)
         {
-            case Tag.INT:
-            case Tag.STR: decl(); declList2(); break;
+            case Tag.ID: identifier(); identList2(); break;
             default: error();
         }
 */
 
-public class DeclList extends Analisador_Sintatico {
+public class IdentList extends Analisador_Sintatico{
 
-    Decl decl;
-    DeclList2 declList2;
+    Identifier identifier;
+    IdentList2 identList2;
 
-    public DeclList(Analisador_Sintatico init){
+    public IdentList(Analisador_Sintatico init){
         super(init);
     }
 
@@ -30,17 +29,18 @@ public class DeclList extends Analisador_Sintatico {
     public void analiseSemantica() {
 
         switch (token.tag) {
+            case Tag.ID:
 
-            case Tag.INT:
-            case Tag.STR:
-                decl = new Decl(this);
-                decl.analiseSemantica();
+                this.type = init.type;
 
-                declList2 = new DeclList2(this);
-                Decl.analiseSemantica();
-                DeclList2.analiseSemantica();
+                identifier = new Identifier(this);
+                identifier.declaration = true;
+                identifier.analiseSemantica();
+
+                identList2 = new IdentList2(this);
+                identList2.analiseSemantica();
+
                 break;
-
             default:
                 System.out.println("Erro sintático na linha " + Lexer.line + ":\n" );//+ "Comando de atribução esperado, porém nao encontrado.");
                 error();

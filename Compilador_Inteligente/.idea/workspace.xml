@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b058f685-fbd3-4f8e-83e4-2d2923e85097" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/DeclList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Addop.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Decl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/DeclList2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Expression.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Expression2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/IdentList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/IdentList2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Relop.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/SimpleExpr.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/SimpleExpr2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analisador_Semantico/Type.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analisador_Semantico/DeclList.java" afterPath="$PROJECT_DIR$/Analisador_Semantico/DeclList.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +29,8 @@
       <file leaf-file-name="Analisador_Sintatico.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="65" column="9" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
+            <state relative-caret-position="568">
+              <caret line="320" column="9" lean-forward="true" selection-start-line="304" selection-start-column="8" selection-end-line="320" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,14 +38,123 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeclList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Expression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Expression.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="389">
+              <caret line="62" column="47" lean-forward="false" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
+                <element signature="e#795#796#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleExpr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/SimpleExpr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="49" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#644#645#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleExpr2.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/SimpleExpr2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#880#881#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Expression2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Expression2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Relop.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Relop.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1319">
+              <caret line="91" column="5" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="91" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Type.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Type.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdentList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/IdentList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#529#530#0" expanded="true" />
+                <element signature="e#556#557#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdentList2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analisador_Semantico/IdentList2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeclList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analisador_Semantico/DeclList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="553">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#511#512#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,6 +176,11 @@
       <find>Tag.AS</find>
       <find>identifi</find>
       <find>readst</find>
+      <find>declList2</find>
+      <find>DeclList2</find>
+      <find>DeclList</find>
+      <find>Relop</find>
+      <find>PL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -80,7 +205,18 @@
         <option value="$PROJECT_DIR$/Analisador_Lexico/Word.java" />
         <option value="$PROJECT_DIR$/Analisador_Lexico/Lexer.java" />
         <option value="$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/DeclList2.java" />
         <option value="$PROJECT_DIR$/Analisador_Semantico/DeclList.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/IdentList.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Decl.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/IdentList2.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Relop.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Addop.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Type.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Expression2.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/Expression.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/SimpleExpr.java" />
+        <option value="$PROJECT_DIR$/Analisador_Semantico/SimpleExpr2.java" />
       </list>
     </option>
   </component>
@@ -90,10 +226,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
-    <option name="width" value="684" />
-    <option name="height" value="743" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="683" />
+    <option name="y" value="30" />
+    <option name="width" value="683" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -174,15 +311,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Analisador_Lexico/Lexer.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Analisador_Lexico/Word.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/testes/teste.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/testes/teste2.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/testes/teste3.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/testes/teste4.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/testes/teste5-corrigido.txt</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -190,6 +318,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Analisador_Semantico/Program.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -460,7 +589,7 @@
       <workItem from="1510239001494" duration="209000" />
       <workItem from="1510240851098" duration="1874000" />
       <workItem from="1510492473210" duration="3377000" />
-      <workItem from="1511434552075" duration="1697000" />
+      <workItem from="1511434552075" duration="9324000" />
     </task>
     <task id="LOCAL-00001" summary="Inserção de métodos">
       <created>1510234507029</created>
@@ -504,14 +633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1511434726275</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Analisador Semantico - DeclList">
+      <created>1511436284958</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1511436284958</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9077000" />
+    <option name="totallyTimeSpent" value="16704000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1366" height="738" extended-state="6" />
+    <frame x="0" y="-33" width="1366" height="801" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -526,7 +662,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19731943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -583,48 +719,14 @@
     <MESSAGE value="Mudança na estrutura do projeto" />
     <MESSAGE value="Mudança metodos Analisador Sintatico" />
     <MESSAGE value="Analisador Sintatico final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Analisador Sintatico final" />
+    <MESSAGE value="Analisador Semantico - DeclList" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analisador Semantico - DeclList" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/src/Lexer.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/src/Analisador_Lexico.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/src/Lexer.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/.idea/Analisador_Lexico.iml" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/src/Analisador_Lexico.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/.idea/misc.xml" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/src/Analisador_Sintatico.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/src/Lexer.java" />
-    <entry file="file://$USER_HOME$/Compilador_Int/Compilador_Inteligente/Analisador_Sintatico/src/Analisador_Sintatico.java" />
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/Analisador_Lexico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analisador_Lexico/Analisador_Lexico.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -912,23 +1014,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java">
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Program.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="65" column="9" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
+        <state relative-caret-position="156">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/DeclList2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Decl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Addop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Analisador_Semantico/DeclList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="553">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <element signature="e#484#485#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Relop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1319">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="91" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/IdentList2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/IdentList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Type.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="43" column="36" lean-forward="false" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Expression2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/Expression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="62" column="47" lean-forward="false" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/SimpleExpr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="49" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Sintatico/Analisador_Sintatico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="320" column="9" lean-forward="true" selection-start-line="304" selection-start-column="8" selection-end-line="320" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analisador_Semantico/SimpleExpr2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
           </folding>
         </state>
       </provider>
