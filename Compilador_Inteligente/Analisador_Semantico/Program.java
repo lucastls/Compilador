@@ -2,7 +2,6 @@ package Analisador_Semantico;
 
 import Analisador_Lexico.Tag;
 import Analisador_Lexico.Lexer;
-import Analisador_Sintatico.Analisador_Sintatico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -48,6 +47,23 @@ public class Program extends Analisador_Sintatico{
             this.tipo = "prg";
             decllist = new DeclList(this);
             decllist.analiseSemantica();
+
+            stmtlist = new StmtList(this);
+            stmtlist.analiseSemantica();
+
+            {
+                try{
+                    eat(Tag.END);
+                }catch(IOException e){
+                    Logger.getLogger(Program.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+
+            break;
+
+            default:
+                System.out.println("Erro sintático linha " +Lexer.line+ ":\n" + "Declaração do início do programa esperada, mas não encontrada");
+                error();
         }
     }
 }

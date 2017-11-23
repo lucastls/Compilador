@@ -32,7 +32,7 @@ public class Analisador_Sintatico {
     {
         if(token.tag == tag)
         {
-            System.err.println("eat" +token+"");
+            System.out.println("eat" +token+"");
             advance();
         }
         else
@@ -216,7 +216,7 @@ public class Analisador_Sintatico {
     {
         switch(token.tag)
         {
-            case Tag.WHL: eat(Tag.WHL); condition(); eat(Tag.END);
+            case Tag.WHL: eat(Tag.WHL); condition(); eat(Tag.END); break;
             default: error();
         }
     }
@@ -457,7 +457,7 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-
+    /*
     @SuppressWarnings("resource")
     public static void main(String[] args) throws IOException
     {
@@ -475,4 +475,5 @@ public class Analisador_Sintatico {
             System.err.println(e.getMessage());
         }
     }
+    */
 }
