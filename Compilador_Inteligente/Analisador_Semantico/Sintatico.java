@@ -18,6 +18,7 @@ public abstract class Sintatico {
     public static List<Token> lista = new ArrayList<Token>();
     public static Lexer lexer;
     public static Token token;
+
     public static boolean isDecl = false;
 
     protected Sintatico(Sintatico init)

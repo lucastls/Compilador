@@ -28,13 +28,13 @@ public class Identifier extends Sintatico {
 	}
 
 	@Override
-	public void analiseSemantica(){
+	public void analiseSemantica() {
 
 		switch(token.tag) {
 
 			case Tag.ID:
 				
-				Token tok = tabela_simbolos.get(token.tipo);
+				Token tok = tabela_simbolos.get(token.getTipo());
 				
 				if (isDecl) {
 					
@@ -42,24 +42,24 @@ public class Identifier extends Sintatico {
 					
 					if (tok != null) {
 						
-						tok = new Token(Tag.ID, token.tipo);
+						tok = new Token(Tag.ID, token.getTipo());
 						tok.tipo = this.type;
 						tabela_simbolos.put(tok);
 						lista.add(tok);
 						
 					}
 					
-				} else { 
-					
+				} else {
+
 					if (!tok.declaration) {
-				
+
 						System.out.println("Erro semântico na linha " + Lexer.line + ":\n" + "Utilização de identificador não definido '" + token.getTipo() + "'.");
 						error();
 					}
-					
+
 					this.type = tok.tipo;
-					
-				} 
+
+				}
 				
 				{
 					try {
@@ -71,7 +71,7 @@ public class Identifier extends Sintatico {
 				break;	
 				
 			default:
-				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrado.");
+				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrada.");
 				error();
 
 		}

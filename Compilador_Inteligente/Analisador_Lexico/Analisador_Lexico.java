@@ -7,13 +7,11 @@ public class Analisador_Lexico
 {
 	public static void main(String[] args)
 	{
-                Scanner in = new Scanner(System.in);
-                System.out.print("Nome do arquivo de teste: ");
-                String nome = in.next();
+		String nomeArquivo = "/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste.txt";
 		try{
-			Lexer lexer = new Lexer(nome);
-                        Token out = lexer.scan();
-                        //lexer.printTable();
+			Lexer lexer = new Lexer(nomeArquivo);
+			Token out = lexer.scan();
+			//lexer.printTable();
 			while(out.getTag()!=63555)
                         {
                             //System.out.println(lexer.Words.toString());
@@ -27,6 +25,8 @@ public class Analisador_Lexico
 		{
 			System.err.println(e.getMessage());
 		}
-		
+
+		System.out.println("\n");
+		System.out.println(Tabela_Simbolos.getTabSimb());
 	}
 }

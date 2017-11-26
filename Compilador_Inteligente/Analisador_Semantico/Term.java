@@ -42,7 +42,7 @@ public class Term extends Sintatico {
             
             case Tag.LI:
             case Tag.ID:
-	    case Tag.NUM:
+	        case Tag.NUM:
             case Tag.PR:
             case Tag.EX:
             case Tag.MN:

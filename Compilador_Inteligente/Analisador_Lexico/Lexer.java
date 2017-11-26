@@ -12,11 +12,12 @@ public class Lexer
 	private static Lexer inst;
 
 	protected static Hashtable<String, Word> Words = new Hashtable<String, Word>();
+	private Tabela_Simbolos tabela_simbolos = Tabela_Simbolos.getTabSimb();
 
 	//Recebe um símbolo e o insere na tabela
-	private void reserve(Word w)
+	private void reserve(Token token)
 	{
-		Words.put(w.getLexeme(), w);
+		tabela_simbolos.put(token);
 	}
 
 	//À partir do arquivo insere as palavras reservadas na tabela de símbolos
@@ -30,19 +31,23 @@ public class Lexer
 		 	System.out.println("Arquivo não encontrado");
 		 	throw e;
 		 }
+		insereReservadas();
+	}
+
+	private void insereReservadas()
+	{
 		//Inserção de palavras reservadas na tabela de símbolos
-		reserve(new Word ("program", Tag.PRG, Token.KY));
-		reserve(new Word ("end", Tag.END, Token.KY));
-		reserve(new Word ("int", Tag.INT, Token.KY));
-		reserve(new Word ("string", Tag.STR, Token.KY));
-		reserve(new Word ("if", Tag.IF, Token.KY));
-		reserve(new Word ("then", Tag.THEN, Token.KY));
-		reserve(new Word ("else", Tag.ELSE, Token.KY));
-		reserve(new Word ("do", Tag.DO, Token.KY));
-		reserve(new Word ("while", Tag.WHL, Token.KY));
-		reserve(new Word ("scan", Tag.SCN, Token.KY));
-		reserve(new Word ("print", Tag.PRT, Token.KY));
-                //reserve(new Word ("\"", Tag.AS, Token.PO));
+		reserve(new Token(Tag.PRG,"prg"));
+		reserve(new Token(Tag.END, "end"));
+		reserve(new Token(Tag.INT, "int"));
+		reserve(new Token(Tag.STR, "string"));
+		reserve(new Token(Tag.IF, "if"));
+		reserve(new Token(Tag.THEN, "then"));
+		reserve(new Token(Tag.ELSE, "else"));
+		reserve(new Token(Tag.DO, "do"));
+		reserve(new Token(Tag.WHL, "while"));
+		reserve(new Token(Tag.SCN, "scan"));
+		reserve(new Token(Tag.PRT, "print"));
 	}
 
 	public static Lexer getInst(String fileName) throws FileNotFoundException
@@ -177,7 +182,7 @@ public class Lexer
 									}*/
                                 }
                                 else
-                                    return Word.dv;
+                                    return new Token(Tag.DV, "/");
                         }
                         else
 				break;
@@ -187,37 +192,37 @@ public class Lexer
 		switch(ch)
 		{
 			case '&':	if(readch('&'))
-						return Word.an;
+						return new Token(Tag.AN, "&&");
 			case '|':	if(readch('|'))
-						return Word.or;
+						return new Token(Tag.OR, "||");
 			case '=':	if(readch('='))
-						return Word.eq;
+						return new Token(Tag.EQ, "==");
                                         else
-                                                return Word.ig;
+                                                return new Token(Tag.IG, "=");
 			case '<':	if(readch('='))
-						return Word.le;
+						return new Token(Tag.LE, "<=");
 					else
-						return Word.ls;
+						return new Token(Tag.LS, "<");
 			case '>':	if(readch('='))
-						return Word.ge;
+						return new Token(Tag.GE, ">=");
 					else
-						return Word.gr;
+						return new Token(Tag.GR, ">");
 			case '(':	ch = ' ';
-					return Word.pr;
+					return new Token(Tag.PR, "(");
 			case ')':	ch = ' ';
-					return Word.fp;
+					return new Token(Tag.FP, ")");
 			case '+':	ch = ' ';
-					return Word.pl;
+					return new Token(Tag.PL, "+");
 			case '-':	ch = ' ';
-					return Word.mn;
+					return new Token(Tag.MN, "-");
 			case '*':	ch = ' ';
-					return Word.mp;
+					return new Token(Tag.MP, "*");
 			case '/':	ch = ' ';
-					return Word.dv;
+					return new Token(Tag.DV, "/");
 			case ',':	ch = ' ';
-					return Word.vr;
+					return new Token(Tag.VR, ",");
 			case ';':	ch = ' ';
-					return Word.pv;
+					return new Token(Tag.PV, ";");
 		}
 		
 		//Literais
@@ -243,14 +248,14 @@ public class Lexer
 			}while((int)ch >= 0 && (int)ch <= 255);
 			
 			String st = s.toString();
-			Word w = Words.get(st);
+			Token token = tabela_simbolos.get(st);
                        			
-			if(w != null)
-				return w;
-			
-			w = new Word(st, Tag.LI, Token.LI);
-			Words.put(st,w);
-			return w;
+			if(token != null)
+				return token;
+
+			token = new Token(Tag.ID, st);
+			tabela_simbolos.put(token);
+			return token;
 		}
 		
 		//Números
@@ -274,13 +279,17 @@ public class Lexer
 			}while(Character.isLetterOrDigit(ch));
 			
 			String st = s.toString();
-			Word w = Words.get(st);
+			//Word w = Words.get(st);
+			Token token = tabela_simbolos.get(st);
                         //System.out.println("Palavra: " +w+ "ID:" +w.getLexeme());
-			if(w != null)
-				return w;
-			w = new Word(st, Tag.ID, Token.ID);
-			Words.put(st,w);
-			return w;
+			if(token != null)
+				return token;
+			//w = new Word(st, Tag.ID, Token.ID);
+			//Words.put(st,w);
+			token = new Token(Tag.ID, st);
+			tabela_simbolos.put(token);
+
+			return token;
 		}
 		
 		if(!(file.read() == -1))

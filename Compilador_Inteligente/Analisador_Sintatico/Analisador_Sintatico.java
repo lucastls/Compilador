@@ -457,8 +457,8 @@ public class Analisador_Sintatico {
             default: error();
         }
     }
-    /*
-    @SuppressWarnings("resource")
+
+
     public static void main(String[] args) throws IOException
     {
 
@@ -475,5 +475,5 @@ public class Analisador_Sintatico {
             System.err.println(e.getMessage());
         }
     }
-    */
+
 }
