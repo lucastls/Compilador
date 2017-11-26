@@ -13,9 +13,8 @@ public class Analisador_Semantico {
 
     public static void main(String[] args) throws IOException
     {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Informe o nome do arquivo: ");
-        String nomeArquivo = in.next();
+
+        String nomeArquivo = "/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste.txt";
 
         Sintatico.lexer = Lexer.getInst(nomeArquivo);
         Sintatico.token = Sintatico.lexer.scan();
