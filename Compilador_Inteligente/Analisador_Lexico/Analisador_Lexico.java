@@ -15,7 +15,7 @@ public class Analisador_Lexico
 			while(out.getTag()!=63555)
                         {
                             //System.out.println(lexer.Words.toString());
-                            System.out.println(out+ " - ID: " +out.getTag());
+                            System.out.println(out+ " - Tag: " +out.getTag());
                             out = lexer.scan();
                             
                             

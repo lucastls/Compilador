@@ -39,10 +39,12 @@ public class Decl extends Sintatico{
 
                 setTipo(lista, type);
                 lista.clear();
-                isDecl = false;
+
 
                 identList = new IdentList(this);
                 identList.analiseSemantica();
+
+                isDecl = false;
 
                 try {
                     eat(Tag.PV);

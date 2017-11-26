@@ -53,7 +53,7 @@ public class Tabela_Simbolos {
 
         for (Token token: tok)
         {
-            str = str + token + "\n";
+            str = str + "<" + token.tipo+ ", " + token.tag + ">" + "\n";
         }
 
         return str;

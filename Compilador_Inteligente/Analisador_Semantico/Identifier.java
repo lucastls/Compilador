@@ -34,7 +34,7 @@ public class Identifier extends Sintatico {
 
 			case Tag.ID:
 				
-				Token tok = tabela_simbolos.get(token.getTipo());
+				Token tok = tabela_simbolos.get(token.tipo);
 				
 				if (isDecl) {
 					
@@ -42,7 +42,7 @@ public class Identifier extends Sintatico {
 					
 					if (tok != null) {
 						
-						tok = new Token(Tag.ID, token.getTipo());
+						tok = new Token(Tag.ID, token.tipo);
 						tok.tipo = this.type;
 						tabela_simbolos.put(tok);
 						lista.add(tok);

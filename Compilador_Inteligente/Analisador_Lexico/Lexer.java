@@ -37,7 +37,7 @@ public class Lexer
 	private void insereReservadas()
 	{
 		//Inserção de palavras reservadas na tabela de símbolos
-		reserve(new Token(Tag.PRG,"prg"));
+		reserve(new Token(Tag.PRG,"program"));
 		reserve(new Token(Tag.END, "end"));
 		reserve(new Token(Tag.INT, "int"));
 		reserve(new Token(Tag.STR, "string"));

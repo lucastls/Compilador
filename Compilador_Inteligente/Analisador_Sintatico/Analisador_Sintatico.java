@@ -30,6 +30,7 @@ public class Analisador_Sintatico {
 
     private void eat(int tag) throws IOException
     {
+
         if(token.tag == tag)
         {
             System.out.println("eat" +token+"");
@@ -48,6 +49,7 @@ public class Analisador_Sintatico {
 
     private void program() throws IOException
     {
+
         switch(token.tag)
         {
             case Tag.PRG: eat(Tag.PRG); declList(); stmtList(); eat(Tag.END); break;
