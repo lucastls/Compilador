@@ -28,13 +28,13 @@ public class Identifier extends Sintatico {
 	}
 
 	@Override
-	public void analiseSemantica() {
+	public void analiseSemantica(){
 
 		switch(token.tag) {
 
 			case Tag.ID:
 				
-				Token tok = tabela_simbolos.get(token.getTipo());
+				Token tok = tabela_simbolos.get(token.tipo);
 				
 				if (isDecl) {
 					
@@ -42,7 +42,7 @@ public class Identifier extends Sintatico {
 					
 					if (tok != null) {
 						
-						tok = new Token(Tag.ID, token.getTipo());
+						tok = new Token(Tag.ID, token.tipo);
 						tok.tipo = this.type;
 						tabela_simbolos.put(tok);
 						lista.add(tok);
@@ -71,7 +71,7 @@ public class Identifier extends Sintatico {
 				break;	
 				
 			default:
-				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrada.");
+				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrado.");
 				error();
 
 		}
