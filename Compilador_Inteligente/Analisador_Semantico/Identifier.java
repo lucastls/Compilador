@@ -71,7 +71,7 @@ public class Identifier extends Sintatico {
 				break;	
 				
 			default:
-				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrada.");
+				System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Identificador esperado, porém não encontrado.");
 				error();
 
 		}

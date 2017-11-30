@@ -45,14 +45,7 @@ public class DeclList2 extends Sintatico {
                 decl = new Decl(this);
                 decl.analiseSemantica();
 
-                try {
-                    eat(Tag.PV);
-                } catch (IOException ex) {
-                    Logger.getLogger(DeclList2.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
                 declList2 = new DeclList2(this);
-                decl.analiseSemantica();
                 declList2.analiseSemantica();
                 break;
 

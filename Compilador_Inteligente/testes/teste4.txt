@@ -5,8 +5,7 @@ int a, aux, b;
  scan (nome);
  print("Sobrenome: ");
  scan (sobrenome);
- msg = "Ola, " + nome + " " +
-sobrenome + "!";
+ msg = "Ola, " + nome + " " + sobrenome + "!";
  msg = msg + 1;
  print (msg);
  scan (a);

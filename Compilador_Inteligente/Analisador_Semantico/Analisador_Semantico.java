@@ -14,7 +14,7 @@ public class Analisador_Semantico {
     public static void main(String[] args) throws IOException
     {
 
-        String nomeArquivo = "/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste3.txt";
+        String nomeArquivo = "/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste6.txt";
 
         Sintatico.lexer = Lexer.getInst(nomeArquivo);
         Sintatico.token = Sintatico.lexer.scan();

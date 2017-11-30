@@ -185,6 +185,10 @@ public class Lexer
 					return new Token(Tag.VR, ",");
 			case ';':	ch = ' ';
 					return new Token(Tag.PV, ";");
+			case '|': if(readch('|'))
+						return new Token(Tag.OR, "||");
+			case '&': if(readch('&'))
+						return new Token(Tag.AN, "&&");
 		}
 		
 		//Literais
@@ -257,8 +261,7 @@ public class Lexer
             if(token != null)
 				return token;
 			token = new Token(Tag.ID, id);
-			//if(tabela_simbolos.get(token.lexeme) != null)
-				tabela_simbolos.put(token);
+			tabela_simbolos.put(token);
 
 			return token;
 		}

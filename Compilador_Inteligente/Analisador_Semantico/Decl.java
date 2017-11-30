@@ -48,11 +48,6 @@ public class Decl extends Sintatico{
                     Logger.getLogger(Decl.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-                for(Token tok: lista)
-                {
-                    System.out.println(tok);
-                }
-
                 lista.clear();
                 isDecl = false;
 
