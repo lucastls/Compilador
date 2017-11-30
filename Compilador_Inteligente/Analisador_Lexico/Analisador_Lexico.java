@@ -10,17 +10,14 @@ public class Analisador_Lexico
 		String nomeArquivo = "/home/mateus/IdeaProjects/Compilador_Int/Compilador_Inteligente/testes/teste.txt";
 		try{
 			Lexer lexer = new Lexer(nomeArquivo);
-			Token out = lexer.scan();
-			//lexer.printTable();
-			while(out.getTag()!=63555)
-                        {
-                            //System.out.println(lexer.Words.toString());
-                            System.out.println(out+ " - Tag: " +out.getTag());
-                            out = lexer.scan();
-                            
-                            
-                        }
-                        //System.out.println(lexer.Words.toString());
+
+			while(true)
+			{
+				Token out = lexer.scan();
+				if(out == null)
+					break;
+				System.out.print(out + "\n");
+			}
 		}catch(IOException e)
 		{
 			System.err.println(e.getMessage());

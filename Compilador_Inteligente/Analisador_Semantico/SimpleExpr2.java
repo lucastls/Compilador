@@ -37,6 +37,7 @@ public class SimpleExpr2 extends Sintatico{
 
     public SimpleExpr2(Sintatico init){
         super(init);
+        this.type = init.type;
     }
 
     @Override

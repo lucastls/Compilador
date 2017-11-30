@@ -10,6 +10,8 @@ import Analisador_Semantico.Sintatico;
 import Util.Util;
 
 /*
+simple-expr ::= term simple-expr2
+
 switch(token.tag)
         {
             case Tag.LI:
@@ -45,6 +47,8 @@ public class SimpleExpr extends Sintatico{
 
                 term = new Term(this);
                 term.analiseSemantica();
+
+                this.type = term.type;
 
                 simpleExpr2 = new SimpleExpr2(this);
                 simpleExpr2.analiseSemantica();

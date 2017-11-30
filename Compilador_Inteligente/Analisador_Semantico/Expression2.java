@@ -8,21 +8,26 @@ import Analisador_Lexico.Lexer;
 import Analisador_Lexico.Tag;
 import Analisador_Sintatico.Analisador_Sintatico;
 /*
+expression2 ::= relop expression | lambda
+
 switch(token.tag)
         {
-            case Tag.LI:
-            case Tag.ID:
-            case Tag.NUM:
-            case Tag.PR:
-            case Tag.EX:
-            case Tag.MN:  simpleExpr(); expression2(); break;
+            case Tag.EQ:
+            case Tag.GR:
+            case Tag.GE:
+            case Tag.LS:
+            case Tag.LE:
+            case Tag.NE:  relop(); expression(); break;
+            case Tag.THEN: break;
+            case Tag.END: break;
+            case Tag.FP: break;
             default: error();
         }
  */
 public class Expression2 extends Sintatico{
 
     Relop relop;
-    Expression2 expression2;
+    Expression expression;
 
     public Expression2(Sintatico init){
         super(init);
@@ -32,19 +37,23 @@ public class Expression2 extends Sintatico{
     public void analiseSemantica() {
 
         switch (token.tag) {
-            case Tag.LI:
-            case Tag.ID:
-            case Tag.NUM:
-            case Tag.PR:
-            case Tag.EX:
-            case Tag.MN:
+            case Tag.EQ:
+            case Tag.GR:
+            case Tag.GE:
+            case Tag.LS:
+            case Tag.LE:
+            case Tag.NE:
 
                 relop = new Relop(this);
                 relop.analiseSemantica();
 
-                expression2 = new Expression2(this);
-                expression2.analiseSemantica();
+                expression = new Expression(this);
+                expression.analiseSemantica();
                 break;
+
+            case Tag.THEN: break;
+            case Tag.END: break;
+            case Tag.FP: break;
 
             default:
                 System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Expressão esperada não encontrada.");

@@ -38,14 +38,14 @@ public class FatorA extends Sintatico {
     	switch (token.tag) {
             	
 		case Tag.LI:
-    		case Tag.ID:
+		case Tag.ID:
 		case Tag.NUM:
 		case Tag.PR:
-			factor = new Factor(this);
+					factor = new Factor(this);
                 	factor.analiseSemantica();
                 	this.type = factor.type;
-                	break;                
-                case Tag.EX: {
+                	break;
+         case Tag.EX: {
 		        try {
 		            eat( Tag.EX);
 		        } catch (IOException e) {

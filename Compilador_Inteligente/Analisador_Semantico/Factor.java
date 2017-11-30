@@ -47,42 +47,36 @@ public class Factor extends Sintatico {
                 
             	identifier = new Identifier(this);
                 identifier.analiseSemantica();
+                this.type = identifier.type;
 		        
-                {
-		            try {
-		                eat(Tag.IG);
-		            } catch (IOException e) {
-		                Logger.getLogger(AssignStmt.class.getName()).log(Level.SEVERE, null, e);
-		            }
-		        }
-break;
+                break;
            
-            case Tag.PR: {
-            	
-            	try {
-            		eat(Tag.PR);
-	            } catch (IOException e) {
-	                Logger.getLogger(Factor.class.getName()).log(Level.SEVERE, null, e);
-	            }
-            	
-	        }
-            
-            expression = new Expression(this);
-            expression.analiseSemantica();
-            this.type = expression.type;
-            
-            {
-            	try {
-	                eat(Tag.FP);
-	            } catch (IOException e) {
-	                Logger.getLogger(Factor.class.getName()).log(Level.SEVERE, null, e);
-	            }
-	        }
-            break;                                                                                                                                
-            
-            default:
-                System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Expressão esperada não encontrada.");
-                error();
+        case Tag.PR: {
+
+            try {
+                eat(Tag.PR);
+            } catch (IOException e) {
+                Logger.getLogger(Factor.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+        }
+
+        expression = new Expression(this);
+        expression.analiseSemantica();
+        this.type = expression.type;
+
+        {
+            try {
+                eat(Tag.FP);
+            } catch (IOException e) {
+                Logger.getLogger(Factor.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        break;
+
+        default:
+            System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Expressão esperada não encontrada.");
+            error();
         }
     }
     

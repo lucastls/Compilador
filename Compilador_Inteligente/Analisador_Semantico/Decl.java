@@ -11,6 +11,7 @@ import Analisador_Lexico.Token;
 import Analisador_Semantico.Sintatico;
 
 /*
+decl ::= type ident-list ;
 switch(token.tag)
         {
             case Tag.INT:
@@ -37,20 +38,23 @@ public class Decl extends Sintatico{
                 type = new Type(this);
                 type.analiseSemantica();
 
-                setTipo(lista, type);
-                lista.clear();
-
-
                 identList = new IdentList(this);
                 identList.analiseSemantica();
-
-                isDecl = false;
+                setTipo(lista, type);
 
                 try {
                     eat(Tag.PV);
                 } catch (IOException ex) {
                     Logger.getLogger(Decl.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
+                for(Token tok: lista)
+                {
+                    System.out.println(tok);
+                }
+
+                lista.clear();
+                isDecl = false;
 
                 break;
             default:

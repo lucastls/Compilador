@@ -31,6 +31,7 @@ public class IdentList2 extends Sintatico{
 
         switch (token.tag) {
             case Tag.VR:
+                this.type = init.type;
                 try {
                     eat(Tag.VR);
                 } catch (IOException ex) {
@@ -40,6 +41,7 @@ public class IdentList2 extends Sintatico{
                 identifier = new Identifier(this);
                 identifier.declaration = true;
                 identifier.analiseSemantica();
+
                 identList2 = new IdentList2(this);
                 identList2.analiseSemantica();
                 break;

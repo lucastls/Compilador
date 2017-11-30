@@ -35,14 +35,16 @@ public abstract class Sintatico {
 
     protected void eat(int tag) throws IOException
     {
+
         if(token.tag == tag)
         {
+
             System.out.println("eat "+token);
             token = lexer.scan();
         }
         else
         {
-            System.out.println("Erro Sintático na linha " + Lexer.line + ":\n" + "Token esperado: \"" + token.getTag() + "\"\n" + "Token encontrado: \"" + token.getTipo() + "\"");
+            System.out.println("Erro Sintático na linha " + Lexer.line + ":\n" + "Token esperado: \"" + token.getLexeme() + "\"\n" + "Token encontrado: \"" + Tag.getLexeme(tag) + "\"");
             error();
         }
     }

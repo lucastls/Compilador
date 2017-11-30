@@ -54,6 +54,10 @@ public class StmtList2 extends Sintatico{
                 stmtlist2.analiseSemantica();
 
                 break;
+
+            case Tag.END: break;
+            case Tag.ELSE: break;
+            case Tag.WHL: break;
             default:
                 System.out.println("Erro sintático linha " +Lexer.line+ ":\n" + "Declaração do início do programa esperada, mas não encontrada");
                 error();

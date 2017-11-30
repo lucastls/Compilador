@@ -9,18 +9,22 @@ import Analisador_Lexico.Tag;
 import Analisador_Semantico.Sintatico;
 
 /*
+expression ::= simple-expr expression2
+
 switch(token.tag)
         {
-            case Tag.EQ:
-            case Tag.GR:
-            case Tag.GE:
-            case Tag.LS:
-            case Tag.LE:
-            case Tag.NE: relop(); simpleExpr(); expression2(); break;
+            case Tag.LI:
+            case Tag.ID:
+            case Tag.NUM:
+            case Tag.PR:
+            case Tag.EX:
+            case Tag.MN: simpleExpr(); expression2(); break;
             case Tag.END: break;
             case Tag.THEN: break;
             case Tag.FP: break;
             default: error();
+
+
         }
  */
 
@@ -37,12 +41,12 @@ public class Expression extends Sintatico{
     public void analiseSemantica() {
 
         switch (token.tag) {
-            case Tag.EQ:
-            case Tag.GR:
-            case Tag.GE:
-            case Tag.LS:
-            case Tag.LE:
-            case Tag.NE:
+            case Tag.LI:
+            case Tag.ID:
+            case Tag.NUM:
+            case Tag.PR:
+            case Tag.EX:
+            case Tag.MN:
 
                 simpleExpr = new SimpleExpr(this);
                 simpleExpr.analiseSemantica();
@@ -63,6 +67,10 @@ public class Expression extends Sintatico{
                     this.type = simpleExpr.type;
                 }
                 break;
+
+            case Tag.END: break;
+            case Tag.THEN: break;
+            case Tag.FP: break;
 
             default:
                 System.out.println("Erro sintático na linha " + Lexer.line + ":\n" + "Expressão esperada não encontrada.");

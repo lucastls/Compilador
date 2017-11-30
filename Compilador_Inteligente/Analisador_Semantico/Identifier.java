@@ -34,7 +34,7 @@ public class Identifier extends Sintatico {
 
 			case Tag.ID:
 				
-				Token tok = tabela_simbolos.get(token.tipo);
+				Token tok = tabela_simbolos.get(token.lexeme);
 				
 				if (isDecl) {
 					
@@ -42,18 +42,18 @@ public class Identifier extends Sintatico {
 					
 					if (tok != null) {
 						
-						tok = new Token(Tag.ID, token.tipo);
+						tok = new Token(Tag.ID, token.lexeme);
 						tok.tipo = this.type;
 						tabela_simbolos.put(tok);
 						lista.add(tok);
-						
+
 					}
 					
 				} else {
 
 					if (!tok.declaration) {
 
-						System.out.println("Erro semântico na linha " + Lexer.line + ":\n" + "Utilização de identificador não definido '" + token.getTipo() + "'.");
+						System.out.println("Erro semântico na linha " + Lexer.line + ":\n" + "Utilização de identificador não definido '" + token.lexeme + "'.");
 						error();
 					}
 

@@ -9,6 +9,7 @@ import Analisador_Lexico.Tag;
 import Analisador_Semantico.Sintatico;
 
 /*
+decl-list ::= decl decl-list2
 switch(token.tag)
         {
             case Tag.INT:
@@ -37,12 +38,11 @@ public class DeclList extends Sintatico {
                 decl.analiseSemantica();
 
                 declList2 = new DeclList2(this);
-                decl.analiseSemantica();
                 declList2.analiseSemantica();
                 break;
 
             default:
-                System.out.println("Erro sintático na linha " + Lexer.line + ":\n" );//+ "Comando de atribução esperado, porém nao encontrado.");
+                System.out.println("Erro semântico na linha " + Lexer.line + ":\n" );
                 error();
         }
     }

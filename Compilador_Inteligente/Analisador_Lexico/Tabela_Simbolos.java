@@ -36,7 +36,7 @@ public class Tabela_Simbolos {
 
     public void put(Token token)
     {
-        hashMap.put(token.getTipo(), token);
+        hashMap.put(token.getLexeme(), token);
     }
 
     public Token get(String tipo)
@@ -53,7 +53,7 @@ public class Tabela_Simbolos {
 
         for (Token token: tok)
         {
-            str = str + "<" + token.tipo+ ", " + token.tag + ">" + "\n";
+            str = str + "<" + token.lexeme+ ", " + token.tag + ">" + "\n";
         }
 
         return str;

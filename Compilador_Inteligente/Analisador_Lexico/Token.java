@@ -4,28 +4,19 @@ public class Token
 {
 	public final int tag;
 	public String tipo;
+	public String lexeme;
 	public boolean declaration;
-	public final static String ID = "id";
-	public final static String NUM = "num";
-	public final static String LI = "literal";
-	public final static String RL = "relop";
-	public final static String ADL = "addop";
-	public final static String ML = "mulop";
-	public final static String PO = "pontuacao";
-	public final static String KY = "palavra_chave";
-	public final static String EOF = "erro";
-    public final static String C1 = "coment_1linha";
-    public final static String CM = "coment_linhas";
-	
-	public Token(int t, String tipo)
+
+	public Token(int t, String lexeme)
 	{
 		tag = t;
-		this.tipo = tipo;
+		this.lexeme = lexeme;
+		this.tipo = "";
 	}
 	
 	public String toString()
 	{
-		return "<" +tipo+ ">";
+		return "<" +lexeme + ", "+ tag+ ">";
 	}
 	
 	public Integer getTag()
@@ -33,8 +24,8 @@ public class Token
 		return tag;
 	}
 	
-	public String getTipo()
+	public String getLexeme()
 	{
-		return tipo;
+		return lexeme;
 	}
 }

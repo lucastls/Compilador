@@ -7,11 +7,8 @@ public class Lexer
 	public static int line = 1;
 	private char ch = ' ';
 	private FileReader file;
-	private Token token;
-	private String lexeme;
 	private static Lexer inst;
 
-	protected static Hashtable<String, Word> Words = new Hashtable<String, Word>();
 	private Tabela_Simbolos tabela_simbolos = Tabela_Simbolos.getTabSimb();
 
 	//Recebe um símbolo e o insere na tabela
@@ -48,6 +45,9 @@ public class Lexer
 		reserve(new Token(Tag.WHL, "while"));
 		reserve(new Token(Tag.SCN, "scan"));
 		reserve(new Token(Tag.PRT, "print"));
+		reserve(new Token(Tag.EX, "not"));
+		reserve(new Token(Tag.AN, "and"));
+		reserve(new Token(Tag.OR, "or"));
 	}
 
 	public static Lexer getInst(String fileName) throws FileNotFoundException
@@ -87,16 +87,7 @@ public class Lexer
 		System.err.println(Msg);
 		System.exit(0);
 	}
-	
-	public void printTable()
-	{
-		for (String name: Words.keySet())
-		{
-		    String key = name;//.toString();
-		    String value = Words.get(name).toString();  
-		    System.out.println(key + " " + value);  
-		} 
-	}
+
 	
 	public Token scan() throws IOException
 	{
@@ -154,32 +145,7 @@ public class Lexer
 										}
 									}
 
-                                	/*
-									//char ch2 = ' ';
-									int linhaInicComment = line;
-									readch();
 
-									while(true)//for(;; readch())
-									{
-
-										if(ch=='*')
-										{
-
-											if(readch('/'))
-											{
-												return Word.cm;
-											}
-
-										}
-
-										if(ch == '\n')
-											line++;
-										readch();
-										if(Integer.valueOf(ch) == 65535)
-										{
-											error("\nComentario iniciado na linha " +linhaInicComment+ " sem fim!");
-										}
-									}*/
                                 }
                                 else
                                     return new Token(Tag.DV, "/");
@@ -191,14 +157,10 @@ public class Lexer
 		//Operadores
 		switch(ch)
 		{
-			case '&':	if(readch('&'))
-						return new Token(Tag.AN, "&&");
-			case '|':	if(readch('|'))
-						return new Token(Tag.OR, "||");
 			case '=':	if(readch('='))
-						return new Token(Tag.EQ, "==");
-                                        else
-                                                return new Token(Tag.IG, "=");
+							return new Token(Tag.EQ, "==");
+                        else
+                            return new Token(Tag.IG, "=");
 			case '<':	if(readch('='))
 						return new Token(Tag.LE, "<=");
 					else
@@ -228,74 +190,108 @@ public class Lexer
 		//Literais
 		if(ch == '"')
 		{
-			StringBuilder s = new StringBuilder();
-			
-			do{
-				s.append(ch);
-				readch();
-				if(ch == '"')
-				{
-					s.append(ch);
-					readch();
-					break;
-				}
-				else if(ch == '\n')
-				{
-					error();
-					return Word.eof;
-					
-				}
-			}while((int)ch >= 0 && (int)ch <= 255);
-			
-			String st = s.toString();
-			Token token = tabela_simbolos.get(st);
-                       			
-			if(token != null)
-				return token;
+			String literal = "\"";
+			readch();
 
-			token = new Token(Tag.ID, st);
-			tabela_simbolos.put(token);
-			return token;
+			while (ch != '\n' && ch != '"')
+			{
+				literal += ch;
+				readch();
+			}
+
+			if(ch == '"')
+			{
+				readch();
+				literal += "\"";
+				return new Token(Tag.LI, literal);
+			}
+			else
+			{
+				System.out.println("Literal inválido na linha " +line);
+				System.exit(0);
+			}
 		}
 		
 		//Números
+		String number = "";
 		if(Character.isDigit(ch))
 		{
-			int value = 0;
-			do{
-				value = 10*value + Character.digit(ch,10);
-				readch();				
-			}while(Character.isDigit(ch));
-			return new Num(value);
+			if(ch == '0')
+			{
+				number += ch;
+				readch();
+
+				if(!Character.isLetterOrDigit(ch))
+				{
+					return new Token(Tag.NUM, number);
+				}
+				else
+				{
+					return null;
+				}
+			}
+			else
+			{
+				while (Character.isDigit(ch))
+				{
+					number += ch;
+					readch();
+				}
+
+				return new Token(Tag.NUM, number);
+			}
 		}
 		
 		//Identificadores
+		StringBuffer s = new StringBuffer();
 		if(Character.isLetter(ch))
 		{
-			StringBuffer s = new StringBuffer();
+
 			do{
 				s.append(ch);
 				readch();
 			}while(Character.isLetterOrDigit(ch));
 			
-			String st = s.toString();
-			//Word w = Words.get(st);
-			Token token = tabela_simbolos.get(st);
-                        //System.out.println("Palavra: " +w+ "ID:" +w.getLexeme());
-			if(token != null)
+			String id = s.toString();
+			Token token = tabela_simbolos.get(id);
+            if(token != null)
 				return token;
-			//w = new Word(st, Tag.ID, Token.ID);
-			//Words.put(st,w);
-			token = new Token(Tag.ID, st);
-			tabela_simbolos.put(token);
+			token = new Token(Tag.ID, id);
+			//if(tabela_simbolos.get(token.lexeme) != null)
+				tabela_simbolos.put(token);
 
 			return token;
+		}
+		else if(ch == '_')
+		{
+			s.append(ch);
+			readch();
+
+			if(Character.isLetterOrDigit(ch))
+			{
+				do
+				{
+					s.append(ch);
+					readch();
+				}while (Character.isLetterOrDigit(ch));
+
+				String id = s.toString();
+				Token tok = tabela_simbolos.get(id);
+
+				if(tok != null)
+					return tok;
+
+				tok = new Token(Tag.ID, id);
+				tabela_simbolos.put(tok);
+
+				return tok;
+			}
 		}
 		
 		if(!(file.read() == -1))
 			error();
 			
-		return Word.eof;
+		return null;
 	}
 	
 	

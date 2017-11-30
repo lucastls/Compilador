@@ -24,7 +24,7 @@ public class Analisador_Sintatico {
 
     private void error()
     {
-        System.err.println("\nErro sintático na linha " + lexer.line +" próximo ao Token: (\""+ token+ "\")");
+        System.err.println("\nErro sintático na linha " + lexer.line +" próximo ao Token: (\""+ token.getLexeme()+ "\")");
         System.exit(0);
     }
 

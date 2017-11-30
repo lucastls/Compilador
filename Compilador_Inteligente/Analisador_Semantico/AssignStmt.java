@@ -32,11 +32,11 @@ public class AssignStmt extends Sintatico {
     
     @Override
     public void analiseSemantica() {
-        
+
     	switch (token.tag) {
-            
+
     		case Tag.ID:
-                
+
             	identifier = new Identifier(this);
                 identifier.analiseSemantica();
 		        
