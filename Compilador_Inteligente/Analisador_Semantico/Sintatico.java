@@ -19,6 +19,8 @@ public abstract class Sintatico {
     public static Lexer lexer;
     public static Token token;
 
+    public static int contChamada = 0;
+
     public static boolean isDecl = false;
 
     protected Sintatico(Sintatico init)
@@ -26,6 +28,7 @@ public abstract class Sintatico {
         this.init = init;
         this.type = "void";
         this.declaration = false;
+        contChamada++;
     }
 
     protected void error()
@@ -38,15 +41,24 @@ public abstract class Sintatico {
 
         if(token.tag == tag)
         {
-
-            System.out.println("eat "+token);
+            debugg();
+            System.out.print("eat "+token);
             token = lexer.scan();
         }
         else
         {
-            System.out.println("Erro Sintático na linha " + Lexer.line + ":\n" + "Token esperado: \"" + token.getLexeme() + "\"\n" + "Token encontrado: \"" + Tag.getLexeme(tag) + "\"");
+            System.out.println("Erro Sintático na linha " + Lexer.line + ":\n" + "Token esperado: \"" + token.getTag() + "\"\n" + "Token encontrado: \"" + Tag.getLexeme(tag) + "\"");
             error();
         }
+    }
+
+    public void debugg()
+    {
+        for(int i = 0; i < contChamada; i++)
+        {
+            System.out.print("  ");
+        }
+        System.out.print("\n");
     }
 
     public abstract void analiseSemantica();

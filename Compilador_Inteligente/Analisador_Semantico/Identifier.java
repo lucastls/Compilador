@@ -35,20 +35,20 @@ public class Identifier extends Sintatico {
 			case Tag.ID:
 				
 				Token tok = tabela_simbolos.get(token.lexeme);
-				
+
 				if (isDecl) {
-					
+
 					this.type = init.type;
-					
+
 					if (tok != null) {
-						
+
 						tok = new Token(Tag.ID, token.lexeme);
 						tok.tipo = this.type;
 						tabela_simbolos.put(tok);
 						lista.add(tok);
 
 					}
-					
+
 				} else {
 
 					if (!tok.declaration) {

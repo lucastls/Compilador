@@ -36,6 +36,15 @@ public class Tabela_Simbolos {
 
     public void put(Token token)
     {
+
+        /*if (hashMap.containsKey(token.getLexeme())) {
+            System.out.print("\n"+token.getLexeme());
+            System.out.print("\nErro semantico na linha " + Lexer.line + ": Token da já existente na tabela.");
+            System.exit(0);
+        }
+        else {
+            hashMap.put(token.getLexeme(), token);
+        }*/
         hashMap.put(token.getLexeme(), token);
     }
 
@@ -53,6 +62,7 @@ public class Tabela_Simbolos {
 
         for (Token token: tok)
         {
+
             str = str + "<" + token.lexeme+ ", " + token.tag + ">" + "\n";
         }
 
